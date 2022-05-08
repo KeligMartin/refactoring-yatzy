@@ -78,12 +78,12 @@ public class Yatzy {
 
     public int fives()
     {
-        int s = 0;
+        int sum = 0;
         int i;
         for (i = 0; i < dice.length; i++)
             if (dice[i] == 5)
-                s = s + 5;
-        return s;
+                sum = sum + 5;
+        return sum;
     }
 
     public int sixes()
@@ -97,27 +97,17 @@ public class Yatzy {
 
     public static int score_pair(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] counts = new int[6];
-        counts[die1-1]++;
-        counts[die2-1]++;
-        counts[die3-1]++;
-        counts[die4-1]++;
-        counts[die5-1]++;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         int i;
         for (i = 0; i != 6; i++)
-            if (counts[6-i-1] >= 2)
+            if (tallies[6-i-1] >= 2)
                 return (6-i)*2;
         return 0;
     }
 
     public static int two_pair(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies = new int[6];
-        tallies[die1-1]++;
-        tallies[die2-1]++;
-        tallies[die3-1]++;
-        tallies[die4-1]++;
-        tallies[die5-1]++;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         int n = 0;
         int score = 0;
         for (int i = 0; i < 6; i += 1)
@@ -133,12 +123,7 @@ public class Yatzy {
 
     public static int four_of_a_kind(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies = new int[6];
-        tallies[die1-1]++;
-        tallies[die2-1]++;
-        tallies[die3-1]++;
-        tallies[die4-1]++;
-        tallies[die5-1]++;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         for (int i = 0; i < 6; i++)
             if (tallies[i] >= 4)
                 return (i+1) * 4;
@@ -147,12 +132,7 @@ public class Yatzy {
 
     public static int three_of_a_kind(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies = new int[6];
-        tallies[die1-1]++;
-        tallies[die2-1]++;
-        tallies[die3-1]++;
-        tallies[die4-1]++;
-        tallies[die5-1]++;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         for (int i = 0; i < 6; i++)
             if (tallies[i] >= 3)
                 return (i+1) * 3;
@@ -161,12 +141,7 @@ public class Yatzy {
 
     public static int smallStraight(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies = new int[6];
-        tallies[die1-1] += 1;
-        tallies[die2-1] += 1;
-        tallies[die3-1] += 1;
-        tallies[die4-1] += 1;
-        tallies[die5-1] += 1;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         if (tallies[0] == 1 &&
                 tallies[1] == 1 &&
                 tallies[2] == 1 &&
@@ -178,12 +153,7 @@ public class Yatzy {
 
     public static int largeStraight(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies = new int[6];
-        tallies[die1-1] += 1;
-        tallies[die2-1] += 1;
-        tallies[die3-1] += 1;
-        tallies[die4-1] += 1;
-        tallies[die5-1] += 1;
+        int[] tallies = tallies(die1, die2, die3, die4, die5);
         if (tallies[1] == 1 &&
                 tallies[2] == 1 &&
                 tallies[3] == 1 &&
@@ -224,5 +194,15 @@ public class Yatzy {
             return twoOfAKindSum * 2 + threeOfAKindSum * 3;
         else
             return 0;
+    }
+
+    private static int[] tallies(int die1, int die2, int die3, int die4, int die5) {
+        int[] counts = new int[6];
+        counts[die1-1]++;
+        counts[die2-1]++;
+        counts[die3-1]++;
+        counts[die4-1]++;
+        counts[die5-1]++;
+        return counts;
     }
 }
