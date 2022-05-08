@@ -1,5 +1,17 @@
 public class Yatzy {
 
+    protected int[] dice;
+
+    public Yatzy(int die1, int die2, int die3, int die4, int die5)
+    {
+        dice = new int[5];
+        dice[0] = die1;
+        dice[1] = die2;
+        dice[2] = die3;
+        dice[3] = die4;
+        dice[4] = die5;
+    }
+
     public static int chance(int die1, int die2, int die3, int die4, int die5)
     {
         int total = 0;
@@ -24,12 +36,11 @@ public class Yatzy {
 
     public static int ones(int die1, int die2, int die3, int die4, int die5) {
         int sum = 0;
-        if (die1 == 1) sum++;
-        if (die2 == 1) sum++;
-        if (die3 == 1) sum++;
-        if (die4 == 1) sum++;
-        if (die5 == 1)
-            sum++;
+        if (die1 == 1) sum += 1;
+        if (die2 == 1) sum += 1;
+        if (die3 == 1) sum += 1;
+        if (die4 == 1) sum += 1;
+        if (die5 == 1) sum += 1;
 
         return sum;
     }
@@ -52,17 +63,6 @@ public class Yatzy {
         if (die4 == 3) sum += 3;
         if (die5 == 3) sum += 3;
         return sum;
-    }
-
-    protected int[] dice;
-    public Yatzy(int die1, int die2, int die3, int die4, int _5)
-    {
-        dice = new int[5];
-        dice[0] = die1;
-        dice[1] = die2;
-        dice[2] = die3;
-        dice[3] = die4;
-        dice[4] = _5;
     }
 
     public int fours()
