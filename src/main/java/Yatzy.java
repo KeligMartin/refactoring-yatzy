@@ -46,13 +46,10 @@ public class Yatzy {
         return sum;
     }
 
-    public static int threes(int die1, int die2, int die3, int die4, int die5) {
+    public int threes() {
         int sum = 0;
-        if (die1 == 3) sum += 3;
-        if (die2 == 3) sum += 3;
-        if (die3 == 3) sum += 3;
-        if (die4 == 3) sum += 3;
-        if (die5 == 3) sum += 3;
+        for (int die: dice)
+            if (die == 3) sum += 3;
         return sum;
     }
 
