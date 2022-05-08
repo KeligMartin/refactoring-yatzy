@@ -13,10 +13,10 @@ public class YatzyTest {
 
     @Test public void yatzy_scores_50() {
         int expected = 50;
-        int actual = Yatzy.yatzy(4,4,4,4,4);
+        int actual = new Yatzy(4,4,4,4,4).yatzy();
         assertEquals(expected, actual);
-        assertEquals(50, Yatzy.yatzy(6,6,6,6,6));
-        assertEquals(0, Yatzy.yatzy(6,6,6,6,3));
+        assertEquals(50, new Yatzy(6,6,6,6,6).yatzy());
+        assertEquals(0, new Yatzy(6,6,6,6,3).yatzy());
     }
 
     @Test public void test_1s() {

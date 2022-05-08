@@ -21,13 +21,13 @@ public class Yatzy {
         return total;
     }
 
-    public static int yatzy(int... dice)
+    public int yatzy()
     {
-        int[] counts = new int[6];
+        int[] counts = new int[dice.length + 1];
         for (int die : dice)
             counts[die - 1]++;
-        for (int i = 0; i != 6; i++)
-            if (counts[i] == 5)
+        for (int count : counts)
+            if (count == 5)
                 return 50;
         return 0;
     }
