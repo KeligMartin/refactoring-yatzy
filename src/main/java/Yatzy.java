@@ -45,14 +45,13 @@ public class Yatzy {
     }
 
     public static int threes(int die1, int die2, int die3, int die4, int die5) {
-        int s;
-        s = 0;
-        if (die1 == 3) s += 3;
-        if (die2 == 3) s += 3;
-        if (die3 == 3) s += 3;
-        if (die4 == 3) s += 3;
-        if (die5 == 3) s += 3;
-        return s;
+        int sum = 0;
+        if (die1 == 3) sum += 3;
+        if (die2 == 3) sum += 3;
+        if (die3 == 3) sum += 3;
+        if (die4 == 3) sum += 3;
+        if (die5 == 3) sum += 3;
+        return sum;
     }
 
     protected int[] dice;
@@ -68,10 +67,9 @@ public class Yatzy {
 
     public int fours()
     {
-        int sum;
-        sum = 0;
-        for (int at = 0; at != 5; at++) {
-            if (dice[at] == 4) {
+        int sum = 0;
+        for (int i = 0; i != 5; i++) {
+            if (dice[i] == 4) {
                 sum += 4;
             }
         }
@@ -91,8 +89,8 @@ public class Yatzy {
     public int sixes()
     {
         int sum = 0;
-        for (int at = 0; at < dice.length; at++)
-            if (dice[at] == 6)
+        for (int i = 0; i < dice.length; i++)
+            if (dice[i] == 6)
                 sum = sum + 6;
         return sum;
     }
@@ -114,16 +112,16 @@ public class Yatzy {
 
     public static int two_pair(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] counts = new int[6];
-        counts[die1-1]++;
-        counts[die2-1]++;
-        counts[die3-1]++;
-        counts[die4-1]++;
-        counts[die5-1]++;
+        int[] tallies = new int[6];
+        tallies[die1-1]++;
+        tallies[die2-1]++;
+        tallies[die3-1]++;
+        tallies[die4-1]++;
+        tallies[die5-1]++;
         int n = 0;
         int score = 0;
         for (int i = 0; i < 6; i += 1)
-            if (counts[6-i-1] >= 2) {
+            if (tallies[6-i-1] >= 2) {
                 n++;
                 score += (6-i);
             }
@@ -133,12 +131,11 @@ public class Yatzy {
             return 0;
     }
 
-    public static int four_of_a_kind(int die1, int _2, int die3, int die4, int die5)
+    public static int four_of_a_kind(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies;
-        tallies = new int[6];
+        int[] tallies = new int[6];
         tallies[die1-1]++;
-        tallies[_2-1]++;
+        tallies[die2-1]++;
         tallies[die3-1]++;
         tallies[die4-1]++;
         tallies[die5-1]++;
@@ -150,23 +147,21 @@ public class Yatzy {
 
     public static int three_of_a_kind(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] t;
-        t = new int[6];
-        t[die1-1]++;
-        t[die2-1]++;
-        t[die3-1]++;
-        t[die4-1]++;
-        t[die5-1]++;
+        int[] tallies = new int[6];
+        tallies[die1-1]++;
+        tallies[die2-1]++;
+        tallies[die3-1]++;
+        tallies[die4-1]++;
+        tallies[die5-1]++;
         for (int i = 0; i < 6; i++)
-            if (t[i] >= 3)
+            if (tallies[i] >= 3)
                 return (i+1) * 3;
         return 0;
     }
 
     public static int smallStraight(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies;
-        tallies = new int[6];
+        int[] tallies = new int[6];
         tallies[die1-1] += 1;
         tallies[die2-1] += 1;
         tallies[die3-1] += 1;
@@ -183,8 +178,7 @@ public class Yatzy {
 
     public static int largeStraight(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies;
-        tallies = new int[6];
+        int[] tallies = new int[6];
         tallies[die1-1] += 1;
         tallies[die2-1] += 1;
         tallies[die3-1] += 1;
@@ -201,17 +195,13 @@ public class Yatzy {
 
     public static int fullHouse(int die1, int die2, int die3, int die4, int die5)
     {
-        int[] tallies;
         boolean hasTwoOfAKind = false;
         int i;
         int twoOfAKindSum = 0;
         boolean hasThreeOfAKind = false;
         int threeOfAKindSum = 0;
 
-
-
-
-        tallies = new int[6];
+        int[] tallies = new int[6];
         tallies[die1-1] += 1;
         tallies[die2-1] += 1;
         tallies[die3-1] += 1;
