@@ -32,14 +32,10 @@ public class Yatzy {
         return 0;
     }
 
-    public static int ones(int die1, int die2, int die3, int die4, int die5) {
+    public int ones() {
         int sum = 0;
-        if (die1 == 1) sum += 1;
-        if (die2 == 1) sum += 1;
-        if (die3 == 1) sum += 1;
-        if (die4 == 1) sum += 1;
-        if (die5 == 1) sum += 1;
-
+        for (int die: dice)
+            if (die == 1) sum += 1;
         return sum;
     }
 
