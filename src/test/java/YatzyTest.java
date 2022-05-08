@@ -6,9 +6,9 @@ public class YatzyTest {
     @Test
     public void chance_scores_sum_of_all_dice() {
         int expected = 15;
-        int actual = Yatzy.chance(2,3,4,5,1);
+        int actual = new Yatzy(2,3,4,5,1).chance();
         assertEquals(expected, actual);
-        assertEquals(16, Yatzy.chance(3,3,4,5,1));
+        assertEquals(16, new Yatzy(3,3,4,5,1).chance());
     }
 
     @Test public void yatzy_scores_50() {
