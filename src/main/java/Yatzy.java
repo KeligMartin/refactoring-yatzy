@@ -79,8 +79,7 @@ public class Yatzy {
     public int fives()
     {
         int sum = 0;
-        int i;
-        for (i = 0; i < dice.length; i++)
+        for (int i = 0; i < dice.length; i++)
             if (dice[i] == 5)
                 sum = sum + 5;
         return sum;
@@ -98,8 +97,7 @@ public class Yatzy {
     public static int score_pair(int die1, int die2, int die3, int die4, int die5)
     {
         int[] tallies = tallies(die1, die2, die3, die4, die5);
-        int i;
-        for (i = 0; i != 6; i++)
+        for (int i = 0; i != 6; i++)
             if (tallies[6 - i - 1] >= 2)
                 return (6 - i) * 2;
         return 0;
@@ -166,20 +164,19 @@ public class Yatzy {
     public static int fullHouse(int die1, int die2, int die3, int die4, int die5)
     {
         boolean hasTwoOfAKind = false;
-        int i;
         int twoOfAKindSum = 0;
         boolean hasThreeOfAKind = false;
         int threeOfAKindSum = 0;
 
         int[] tallies = tallies(die1, die2, die3, die4, die5);
 
-        for (i = 0; i != 6; i += 1)
+        for (int i = 0; i != 6; i += 1)
             if (tallies[i] == 2) {
                 hasTwoOfAKind = true;
                 twoOfAKindSum = i + 1;
             }
 
-        for (i = 0; i != 6; i += 1)
+        for (int i = 0; i != 6; i += 1)
             if (tallies[i] == 3) {
                 hasThreeOfAKind = true;
                 threeOfAKindSum = i + 1;
