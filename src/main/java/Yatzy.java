@@ -33,51 +33,30 @@ public class Yatzy {
     }
 
     public int ones() {
-        int sum = 0;
-        for (int die: dice)
-            if (die == 1) sum += 1;
-        return sum;
+        return sameNumbers(1);
     }
 
     public int twos() {
-        int sum = 0;
-        for (int die: dice)
-            if (die == 2) sum += 2;
-        return sum;
+        return sameNumbers(2);
     }
 
     public int threes() {
-        int sum = 0;
-        for (int die: dice)
-            if (die == 3) sum += 3;
-        return sum;
+        return sameNumbers(3);
     }
 
     public int fours()
     {
-        int sum = 0;
-        for (int die : dice)
-            if (die == 4)
-                sum = sum + 4;
-        return sum;
+        return sameNumbers(4);
     }
 
     public int fives()
     {
-        int sum = 0;
-        for (int die : dice)
-            if (die == 5)
-                sum = sum + 5;
-        return sum;
+        return sameNumbers(5);
     }
 
     public int sixes()
     {
-        int sum = 0;
-        for (int die : dice)
-            if (die == 6)
-                sum = sum + 6;
-        return sum;
+        return sameNumbers(6);
     }
 
     public static int score_pair(int die1, int die2, int die3, int die4, int die5)
@@ -182,5 +161,12 @@ public class Yatzy {
         tallies[die4 - 1] += 1;
         tallies[die5 - 1] += 1;
         return tallies;
+    }
+
+    private int sameNumbers(int dieValue) {
+        int sum = 0;
+        for (int die : dice)
+            if (die == dieValue) sum += dieValue;
+        return sum;
     }
 }
