@@ -39,13 +39,10 @@ public class Yatzy {
         return sum;
     }
 
-    public static int twos(int die1, int die2, int die3, int die4, int die5) {
+    public int twos() {
         int sum = 0;
-        if (die1 == 2) sum += 2;
-        if (die2 == 2) sum += 2;
-        if (die3 == 2) sum += 2;
-        if (die4 == 2) sum += 2;
-        if (die5 == 2) sum += 2;
+        for (int die: dice)
+            if (die == 2) sum += 2;
         return sum;
     }
 
